@@ -146,8 +146,11 @@ class Pong {
             });
         });
     }
-    play() {
+    play(two) {
         const b = this.ball;
+        if (two) {
+            // let the keyboard move the second player
+        }
         if (b.vel.x === 0 && b.vel.y === 0) {
             b.vel.x = 200 * (Math.random() > .5 ? 1 : -1);
             b.vel.y = 200 * (Math.random() * 2 - 1);
@@ -180,6 +183,19 @@ class Pong {
             ball.vel.y = -ball.vel.y;
         }
 
+        // Computer AI
+        // var diff = -((this.paddle.x + (this.paddle.width / 2)) - x_pos);
+        // if(diff < 0 && diff < -4) { // max speed left
+        //   diff = -5;
+        // } else if(diff > 0 && diff > 4) { // max speed right
+        //   diff = 5;
+        // }
+        // this.paddle.move(diff, 0);
+        // if(this.paddle.x < 0) {
+        //   this.paddle.x = 0;
+        // } else if (this.paddle.x + this.paddle.width > 400) {
+        //   this.paddle.x = 400 - this.paddle.width;
+        // }
         this.players[1].pos.y = ball.pos.y;
 
         this.players.forEach(player => {
@@ -191,27 +207,52 @@ class Pong {
     }
 }
 
+var twoPeople = false;
 const canvas = document.querySelector('#pong');
+const onePlayer = document.getElementById('onePlayer');
+const twoPlayers = document.getElementById('twoPlayers');
+
 const pong = new Pong(canvas);
 
-canvas.addEventListener('click', () => pong.play());
+
+onePlayer.addEventListener('click', () => {
+    canvas.focus();
+    pong.play();
+});
+twoPlayers.addEventListener('click', () => {
+    canvas.focus();
+    twoPeople = true;
+    pong.play(twoPeople);
+});
+
+canvas.addEventListener('mousemove', event => {
+    if (!twoPeople) {
+        const scale = event.offsetY / event.target.getBoundingClientRect().height;
+        pong.players[0].pos.y = canvas.height * scale;
+    }
+});
 
 canvas.addEventListener('keydown', event => {
-    console.log(event.offsetY);
-    const scale = event.offsetY / event.target.getBoundingClientRect().height;
-    console.log(scale);
-    // pong.players[0].pos.y = canvas.height * scale;
-    if (event.keyCode == 87) {
-
-    }
-    if (event.keyCode == 83) {
-
-    }
-    if (event.keyCode == 38) {
-
-    }
-    if (event.keyCode == 40) {
-
+    if (twoPeople) {
+        // const scale = event.offsetY / event.target.getBoundingClientRect().height;
+        // console.log(pong.players[0].pos.y); // position of player
+        // console.log(canvas.height); // abstract height set by canvas
+        // console.log(event.target.getBoundingClientRect().height); // height of canvas on window
+        // function updatePosition(direction, player) {
+            // pong.players[player].pos.y = canvas.height * scale;
+        // } 217, 198, 114
+        if (event.keyCode == 38) {
+            // pong.players[1].pos.y = canvas.height * scale;
+        }
+        if (event.keyCode == 40) {
+            // pong.players[1].pos.y = canvas.height * scale;
+        }
+        if (event.keyCode == 87) {
+            // pong.players[0].pos.y = canvas.height * scale;
+        }
+        if (event.keyCode == 83) {
+            // pong.players[0].pos.y = canvas.height * scale;
+        }
     }
 });
 

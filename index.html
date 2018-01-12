@@ -9,7 +9,11 @@
         <meta name="keywords" content="pong atari retro games javascript-games">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-        <title>pong</title>
+
+        <link rel="icon" type="image/x-icon" href="./favicon.ico" />
+        <link href="pong.css" media="screen, print" rel="stylesheet" type="text/css" />
+
+        <title>Pong!</title>
 
         <style>
             body {
@@ -32,8 +36,18 @@
                 color: inherit;
                 cursor: pointer;
             }
+            header {
+                text-align: center;
+            }
             h1 {
                 font-size: 32px;
+            }
+            button {
+                cursor: pointer;
+            }
+            img {
+                width: 90px;
+                height: 100%;
             }
             canvas {
                 border: solid 1px #fff;
@@ -49,13 +63,31 @@
         </style>
     </head>
     <body>
-        <!-- <header><h1>Pong</h1></header> -->
+        <header>
+            <!-- <h1>Pong</h1> -->
+            <button type="button" name="button" id="onePlayer">1 Player</button>
+            <button type="button" name="button" id="twoPlayers">2 Players</button>
+        </header>
         <section>
             <noscript>
                 <div>We have detected that Javascript is <strong>DISABLED</strong>. You need javascript enabled to enjoy all features on this site. Here are <a rel="nofollow" target="_blank" href="http://www.enable-javascript.com/">instructions on how to enable JavaScript</a> in your web browser.</div>
             </noscript>
-            <canvas id="pong" tabindex='1'  width="600" height="375" />
+            <canvas id="pong" tabindex='1'  width="550" height="375" />
         </section>
+        <!-- <footer>
+            <h2>Controls</h2>
+            <div>
+                <div class="">
+                    <h3>For one player</h3>
+                    <p>Move the paddle with the mouse</p>
+                </div>
+                <div class="">
+                    <h3>For two players</h3>
+                    <p>player 1: <img src="./img/wasd.png" alt="wasd"></p>
+                    <p>player 2: <img src="./img/up_down.png" alt="up_down"></p>
+                </div>
+            </div>
+        </footer> -->
         <script src="pong.js"></script>
     </body>
 </html>
