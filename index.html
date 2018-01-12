@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#202020">
+        <meta name="author" content="Craig Walker">
+        <meta name="description" content="Pong is retro Atari game | Made with ❤️ and JavaScript">
+        <meta name="keywords" content="pong atari retro games javascript-games">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <title>pong</title>
+
+        <style>
+            body {
+                box-sizing: border-box;
+                font-family: monospace;
+                font-size: 100%;
+                background: #202020;
+                color: #ffffff;
+                margin: 0;
+                vertical-align: baseline;
+                overflow-x: hidden;
+            }
+            footer, header, section {
+                display: block;
+            }
+            body {
+                line-height: 1;
+            }
+            a {
+                color: inherit;
+                cursor: pointer;
+            }
+            h1 {
+                font-size: 32px;
+            }
+            canvas {
+                border: solid 1px #fff;
+                border-left: none;
+                border-right: none;
+                image-rendering: pixelated;
+                width: 100%;
+            }
+            .wrapper {
+                align-items: center;
+                display: flex;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- <header><h1>Pong</h1></header> -->
+        <section>
+            <noscript>
+                <div>We have detected that Javascript is <strong>DISABLED</strong>. You need javascript enabled to enjoy all features on this site. Here are <a rel="nofollow" target="_blank" href="http://www.enable-javascript.com/">instructions on how to enable JavaScript</a> in your web browser.</div>
+            </noscript>
+            <canvas id="pong" tabindex='1'  width="600" height="375" />
+        </section>
+        <script src="pong.js"></script>
+    </body>
+</html>
